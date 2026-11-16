@@ -6,19 +6,27 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   plugins: [
     react(),
+
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico'],
+
+      includeAssets: [
+        'favicon.svg',
+        'apple-touch-icon.png'
+      ],
 
       manifest: {
         name: 'TaskFlow — Планувальник завдань',
         short_name: 'TaskFlow',
         description: 'Зручний планувальник завдань',
-        theme_color: '#6258ff',
-        background_color: '#f7f8ff',
+
+        theme_color: '#100b1e',
+        background_color: '#100b1e',
+
         display: 'standalone',
         start_url: '/',
         scope: '/',
+
         icons: [
           {
             src: '/pwa-192x192.png',
@@ -36,7 +44,9 @@ export default defineConfig({
       },
 
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globPatterns: [
+          '**/*.{js,css,html,ico,png,svg}'
+        ],
         navigateFallback: '/index.html'
       }
     })
